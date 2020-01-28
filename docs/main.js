@@ -15,16 +15,19 @@ function urlBase64ToUint8Array(base64String) {
 
 const publicVapidKey = 'BOK-YxcIPGxxywWYDgFMLVF6rw20w2tiy3j4Dg2VDXYkc07SBJn_SguGcyJUj4XwYuK7_-XoH9DE4xJf5d3x3zQ';
 
-const triggerPush = document.querySelector('.trigger-push');
 
-if ('serviceWorker' in navigator) {
-  alert('registered')
-  const register = await navigator.serviceWorker.register('/sw.js', {
-    scope: '/'
-  });
+async function init () {
+  if ('serviceWorker' in navigator) {
+    alert('registered')
+    const register = await navigator.serviceWorker.register('/sw.js', {
+      scope: '/'
+    });
 
-  const subscription = await register.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
-  });
+    const subscription = await register.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
+    });
+  }
 }
+
+init()
