@@ -19,7 +19,7 @@ const publicVapidKey = 'BOK-YxcIPGxxywWYDgFMLVF6rw20w2tiy3j4Dg2VDXYkc07SBJn_SguG
 async function init () {
   if ('serviceWorker' in navigator) {
     alert('registered')
-    const register = await navigator.serviceWorker.register('/pwa-test/sw.js', {
+    const register = await navigator.serviceWorker.register('./sw.js', {
       scope: '/'
     });
 
