@@ -1,21 +1,21 @@
 {
-  "short_name": "Maps",
-  "name": "Google Maps",
+  "short_name": "pwa test",
+  "name": "pwa test",
   "icons": [
     {
-      "src": "/images/icons-192.png",
+      "src": "/pwa-test/images/icons-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/images/icons-512.png",
+      "src": "/pwa-test/images/icons-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html?source=pwa",
+  "start_url": "/pwa-test/index.html?source=pwa",
   "background_color": "#3367D6",
   "display": "standalone",
-  "scope": "/index.html",
+  "scope": "/pwa-test/index.html",
   "theme_color": "#3367D6"
 }
