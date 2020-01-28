@@ -17,7 +17,7 @@ const publicVapidKey = 'BOK-YxcIPGxxywWYDgFMLVF6rw20w2tiy3j4Dg2VDXYkc07SBJn_SguG
 
 const triggerPush = document.querySelector('.trigger-push');
 
-alert(navigator)
+alert('serviceWorker' in navigator)
 
 async function triggerPushNotification() {
   if ('serviceWorker' in navigator) {
