@@ -20,7 +20,7 @@ async function init () {
   if ('serviceWorker' in navigator) {
     alert('registered')
     const register = await navigator.serviceWorker.register('./sw.js', {
-      scope: '/'
+      scope: '/pwa-test/'
     });
 
     const subscription = await register.pushManager.subscribe({
