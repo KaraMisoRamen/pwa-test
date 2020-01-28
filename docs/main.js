@@ -15,7 +15,6 @@ function urlBase64ToUint8Array(base64String) {
 
 const publicVapidKey = 'BOK-YxcIPGxxywWYDgFMLVF6rw20w2tiy3j4Dg2VDXYkc07SBJn_SguGcyJUj4XwYuK7_-XoH9DE4xJf5d3x3zQ';
 
-
 async function init () {
   if ('serviceWorker' in navigator) {
     alert('registered')
@@ -27,6 +26,8 @@ async function init () {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
     });
+
+    document.querySelector('#jsonBody').innerHTML = JSON.stringify(subscription)
   }
 }
 
