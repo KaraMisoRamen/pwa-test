@@ -17,33 +17,14 @@ const publicVapidKey = 'BOK-YxcIPGxxywWYDgFMLVF6rw20w2tiy3j4Dg2VDXYkc07SBJn_SguG
 
 const triggerPush = document.querySelector('.trigger-push');
 
-alert('serviceWorker' in navigator)
+if ('serviceWorker' in navigator) {
+  alert('registered')
+  const register = await navigator.serviceWorker.register('/sw.js', {
+    scope: '/'
+  });
 
-async function triggerPushNotification() {
-  if ('serviceWorker' in navigator) {
-    const register = await navigator.serviceWorker.register('/sw.js', {
-      scope: '/'
-    });
-
-    alert('waiting for acceptance');
-    const subscription = await register.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
-    });
-    console.log('acceptance complete');
-
-    await fetch('/subscribe', {
-      method: 'POST',
-      body: JSON.stringify(subscription),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  } else {
-    console.error('Service workers are not supported in this browser');
-  }
+  const subscription = await register.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
+  });
 }
-
-triggerPush.addEventListener('click', () => {
-  triggerPushNotification().catch(error => console.error(error));
-});
